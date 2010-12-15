@@ -1,0 +1,22 @@
+<project>
+	<name>The Kindness of Strangers</name>
+	<settings>
+		<defaultWidth>1878</defaultWidth>
+		<defaultHeight>2814</defaultHeight>
+		<workingDirectory>graphics</workingDirectory>
+	</settings>
+	<objects>
+		<object name="maze" image="super_tough_maze.png" width="1878" height="2494"/>
+		<object name="player" image="player.png" width="6" height="12" limit="1"/>
+		<folder name="strangers">
+			<object name="person_left" image="person_left.png" width="6" height="12"/>
+			<object name="person_right" image="person_right.png" width="6" height="12"/>
+			<object name="person_up" image="person_up.png" width="6" height="12"/>
+			<object name="person_down" image="person_down.png" width="6" height="12"/>
+		</folder>
+	</objects>
+	<layers>
+		<objects name="actors" gridSize="12"/>
+		<objects name="maze" gridSize="160"/>
+	</layers>
+</project>
