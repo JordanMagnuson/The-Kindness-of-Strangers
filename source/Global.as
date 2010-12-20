@@ -30,6 +30,7 @@ package source
 			maze:Maze,
 			view:View,
 			sndControler:SoundController,
+			photoControler:PhotoController,
 			trigger01:Trigger,
 			trigger02:Trigger,
 			

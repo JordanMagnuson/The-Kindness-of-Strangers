@@ -32,6 +32,7 @@ package source
 		override public function begin():void {
 			Global.level = 0;
 			add(Global.sndControler = new SoundController);
+			add(Global.photoControler = new PhotoController);
 			//loadMaze();
 			nextlevel();
 		}

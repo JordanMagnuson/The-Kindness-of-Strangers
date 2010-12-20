@@ -3,6 +3,7 @@ package source
 	import net.flashpunk.Entity;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.tweens.sound.SfxFader;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -10,10 +11,9 @@ package source
 	 */
 	public class SoundController extends Entity
 	{
-		public const FADE_DURATION:Number = 200;
+		public const FADE_DURATION:Number = 3 * FP.assignedFrameRate;
 		
 		public var currentSound:Sfx;
-		public var newSound:Sfx;
 		public var fader:SfxFader;
 		
 		// Transcript sounds
