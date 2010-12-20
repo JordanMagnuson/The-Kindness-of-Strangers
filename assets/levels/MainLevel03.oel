@@ -164,7 +164,8 @@
   </actors>
   <triggers>
     <trigger_01 x="4" y="160"/>
-    <trigger_02 x="1448" y="1852"/>
+    <trigger_02 x="1292" y="124"/>
+    <trigger_03 x="1072" y="1916"/>
   </triggers>
   <maze>
     <maze x="0" y="160"/>

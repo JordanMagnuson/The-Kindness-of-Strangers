@@ -11,7 +11,7 @@ package source
 	 */
 	public class SoundController extends Entity
 	{
-		public const FADE_DURATION:Number = 3 * FP.assignedFrameRate;
+		public const FADE_DURATION:Number = 4 * FP.assignedFrameRate;
 		
 		public var currentSound:Sfx;
 		public var fader:SfxFader;

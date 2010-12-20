@@ -33,7 +33,7 @@ package source
 		
 		override public function added():void
 		{
-			addTween(displayAlarm, true);
+			//addTween(displayAlarm, true);
 			fadeIn();
 		}
 		
