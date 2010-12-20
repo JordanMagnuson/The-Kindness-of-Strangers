@@ -2,8 +2,6 @@
   <width>1878</width>
   <height>2814</height>
   <actors>
-    <person_up x="72" y="228"/>
-    <person_left x="204" y="300"/>
     <person_down x="288" y="228"/>
     <person_down x="108" y="420"/>
     <person_down x="108" y="540"/>
@@ -161,11 +159,11 @@
     <person_right x="1788" y="2448"/>
     <player x="1416" y="132"/>
     <person_left x="1812" y="132"/>
+    <person_down x="204" y="300"/>
   </actors>
   <triggers>
-    <trigger_01 x="4" y="160"/>
-    <trigger_02 x="1292" y="124"/>
-    <trigger_03 x="1072" y="1916"/>
+    <trigger_02 x="1068" y="1916"/>
+    <trigger_01 x="156" y="320"/>
   </triggers>
   <maze>
     <maze x="0" y="160"/>
