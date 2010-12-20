@@ -25,6 +25,7 @@ package source
 			super(x, y);
 			type = 'Solid';
 			layer = 10;			
+			active = false;
 		}
 		
 		override public function added():void
@@ -33,11 +34,13 @@ package source
 			FP.world.add(mazeTop = new Entity(x, y, imgTop, new Pixelmask(S_MAZE_TOP)));
 			mazeTop.type = type;
 			mazeTop.layer = layer;
+			mazeTop.active = active;
 			
 			// Maze bottom
 			FP.world.add(mazeBottom = new Entity(x, y + imgTop.height, imgBottom, new Pixelmask(S_MAZE_BOTTOM)));
 			mazeBottom.type = type;
-			mazeBottom.layer = layer;			
+			mazeBottom.layer = layer;		
+			mazeTop.active = active;
 		}
 		
 	}

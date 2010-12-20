@@ -32,18 +32,12 @@ package source.Objects
 		public var movement:Number = 1;
 		public var jump:Number = 8;
 		
-		//current player direction (true = right, false = left)
+		//current direction (true = right, false = left)
 		public var direction:Boolean = true;
 		
 		//are we on the ground?
 		public var onground:Boolean = false;
 		
-		//are we walljumping? (0 = no, 1 = left, 2 = right)
-		public var walljumping:int = 0;
-		//can we double jump? (false = no, true = yes)
-		public var doublejump:Boolean = false;
-		
-		public var dead:Boolean = false;
 		public var start:Point;		
 		
 		public function Stranger(x:Number, y:Number) 
@@ -76,6 +70,10 @@ package source.Objects
 			graphic = sprStranger;
 			type = "Stranger";			
 			
+			//set different speeds and such
+			mGravity = 0.4;
+			mMaxspeed = new Point(4, 4);			
+			
 			//Face random direction
 			direction = FP.choose(true, false);
 			
@@ -95,10 +93,26 @@ package source.Objects
 		
 		override public function update():void
 		{
-			super.update();
 			checkHelp();	
 			faceDirection();
-			updateTalkBubble();			
+			updateTalkBubble();	
+			
+			super.update();
+			
+			//are we on the ground?
+			//onground = false;
+			//if (collide(solid, x, y + 1)) 
+			//{ 
+				//onground = true;
+			//}
+			//
+			// Movement
+			//if (!onground)
+			//{
+				//gravity();
+				//maxspeed(false, true);
+				//motion();
+			//}
 		}
 		
 		public function checkHelp():void

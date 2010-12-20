@@ -14,9 +14,16 @@
 			<object name="person_up" image="person_up.png" width="6" height="12"/>
 			<object name="person_down" image="person_down.png" width="6" height="12"/>
 		</folder>
+		<folder name="triggers">
+			<object name="trigger_01" image="trigger_01.png" width="24" height="24"/>
+			<object name="trigger_02" image="trigger_02.png" width="24" height="24"/>
+			<object name="trigger_03" image="trigger_03.png" width="24" height="24"/>
+			<object name="trigger_04" image="trigger_04.png" width="24" height="24"/>
+		</folder>
 	</objects>
 	<layers>
 		<objects name="actors" gridSize="12"/>
+		<objects name="triggers" gridSize="4"/>
 		<objects name="maze" gridSize="160"/>
 	</layers>
 </project>

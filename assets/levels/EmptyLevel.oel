@@ -1,0 +1,14 @@
+<level>
+  <width>1878</width>
+  <height>2814</height>
+  <actors>
+    <player x="132" y="144"/>
+    <person_left x="192" y="144"/>
+    <person_right x="216" y="144"/>
+    <person_up x="252" y="144"/>
+    <person_down x="300" y="144"/>
+  </actors>
+  <maze>
+    <maze x="0" y="320"/>
+  </maze>
+</level>

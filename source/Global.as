@@ -2,6 +2,7 @@ package source
 {
 	import net.flashpunk.utils.Key;
 	import source.Objects.Player;
+	import source.Objects.Trigger;
 	/*
 	 * This class contains a number of global variables to be used throughout the game
 	 */
@@ -28,6 +29,9 @@ package source
 			player:Player,
 			maze:Maze,
 			view:View,
+			sndControler:SoundController,
+			trigger01:Trigger,
+			trigger02:Trigger,
 			
 			paused:Boolean = false,
 			restart:Boolean = false,
