@@ -22,7 +22,7 @@ package source.Objects
 		[Embed(source = '../../assets/graphics/plane.png')] public static const S_PLANE:Class;
 		public var image:Image = new Image(S_PLANE);	
 		
-		[Embed(source='../../assets/sound/sounds.swf', symbol='propeller')] public static const SOUND_PLANE:Class;
+		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'plane_sound')] public static const SOUND_PLANE:Class;
 		public var soundPlane:Sfx = new Sfx(SOUND_PLANE);
 		
 		public var playerDropped:Boolean = false;

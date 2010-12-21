@@ -21,16 +21,16 @@ package source
 		public var fadeOutStarted:Boolean = false;
 		
 		// Transcript sounds
-		[Embed(source = '../assets/sound/transcript_part01.mp3')] private const SND_TRANSCRIPT_01:Class;
+		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part01.wav')] private const SND_TRANSCRIPT_01:Class;
 		public var sndTranscript01:Sfx = new Sfx(SND_TRANSCRIPT_01);
 		
-		[Embed(source = '../assets/sound/transcript_part02.mp3')] private const SND_TRANSCRIPT_02:Class;
+		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part02.wav')] private const SND_TRANSCRIPT_02:Class;
 		public var sndTranscript02:Sfx = new Sfx(SND_TRANSCRIPT_02);		
 		
-		[Embed(source = '../assets/sound/transcript_part03.mp3')] private const SND_TRANSCRIPT_03:Class;
+		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part03.wav')] private const SND_TRANSCRIPT_03:Class;
 		public var sndTranscript03:Sfx = new Sfx(SND_TRANSCRIPT_03);	
 		
-		[Embed(source='../assets/sound/transcript_part04.mp3')] private const SND_TRANSCRIPT_04:Class;
+		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part04.wav')] private const SND_TRANSCRIPT_04:Class;
 		public var sndTranscript04:Sfx = new Sfx(SND_TRANSCRIPT_04);	
 		
 		// Other sounds
