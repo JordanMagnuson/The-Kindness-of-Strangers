@@ -37,7 +37,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-frame start Main" />
     <option compilerConstants="" />
     <option customSDK="" />
   </build>
@@ -67,7 +67,7 @@
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="Main.as" />
+    <compile path="source\Preloader.as" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
