@@ -14,7 +14,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'12/20/2010'</value>
+      <value>'12/21/2010'</value>
     </define>
     <source-path append="true">
       <path-element>C:\Users\Jordan\Documents\Flash Stuff\The Kindness of Strangers 2</path-element>

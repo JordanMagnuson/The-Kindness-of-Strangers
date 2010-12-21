@@ -1,6 +1,8 @@
 package source 
 {
 	import net.flashpunk.utils.Key;
+	import source.Objects.Airplane;
+	import source.Objects.Airplane2;
 	import source.Objects.Player;
 	import source.Objects.Trigger;
 	/*
@@ -26,20 +28,24 @@ package source
 			keyRight:int = Key.RIGHT,
 			keyA:int = Key.X,
 			
+			airplane:Airplane,
+			airplane2:Airplane2,
 			player:Player,
 			maze:Maze,
 			view:View,
-			sndControler:SoundController,
+			soundControler:SoundController,
 			photoControler:PhotoController,
 			trigger01:Trigger,
 			trigger02:Trigger,
+			trigger03:Trigger,
+			trigger04:Trigger,
 			
 			paused:Boolean = false,
 			restart:Boolean = false,
 			finished:Boolean = false;
 			
 		public static const
-			BG_COLOR:uint = Colors.DARK_GRAY,
+			BG_COLOR:uint = Colors.WHITE,
 			grid:int = 32;
 		
 	}

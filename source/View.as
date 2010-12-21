@@ -48,8 +48,8 @@ package source
 			
 			FP.stepTowards(this, _tofollow.x - FP.screen.width / 2, _tofollow.y - FP.screen.height / 2, spd);
 			
-			FP.camera.x = x;
-			FP.camera.y = y;
+			FP.camera.x = int(x);
+			FP.camera.y = int(y);
 			
 			//stay within contstraints
 			if(_within != null) {

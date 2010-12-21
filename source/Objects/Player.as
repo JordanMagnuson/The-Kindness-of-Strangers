@@ -30,6 +30,7 @@ package source.Objects
 		public var doublejump:Boolean = false;
 		
 		public var dead:Boolean = false;
+		public var stunned:Boolean = false;
 		public var start:Point;
 		
 		public function Player(x:int, y:int) 
@@ -81,8 +82,11 @@ package source.Objects
 			acceleration.x = 0;
 			
 			//increase acceeration, if we're not going too fast
-			if (Input.check(Global.keyLeft) && speed.x > -mMaxspeed.x) { acceleration.x = - movement; direction = false; }
-			if (Input.check(Global.keyRight) && speed.x < mMaxspeed.x) { acceleration.x = movement; direction = true; }
+			if (!stunned)
+			{
+				if (Input.check(Global.keyLeft) && speed.x > -mMaxspeed.x) { acceleration.x = - movement; direction = false; }
+				if (Input.check(Global.keyRight) && speed.x < mMaxspeed.x) { acceleration.x = movement; direction = true; }
+			}
 			
 			//friction (apply if we're not moving, or if our speed.x is larger than maxspeed)
 			if ( (! Input.check(Global.keyLeft) && ! Input.check(Global.keyRight)) || Math.abs(speed.x) > mMaxspeed.x ) { friction(true, false); }

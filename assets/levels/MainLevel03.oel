@@ -157,13 +157,15 @@
     <person_left x="1704" y="2508"/>
     <person_left x="1824" y="2292"/>
     <person_right x="1788" y="2448"/>
-    <player x="1416" y="132"/>
     <person_left x="1812" y="132"/>
-    <person_down x="204" y="300"/>
+    <person_down x="144" y="300"/>
+    <player x="1788" y="2628"/>
   </actors>
   <triggers>
-    <trigger_02 x="1068" y="1916"/>
     <trigger_01 x="156" y="320"/>
+    <trigger_02 x="868" y="1760"/>
+    <trigger_03 x="1848" y="2648"/>
+    <trigger_04 x="1388" y="2500"/>
   </triggers>
   <maze>
     <maze x="0" y="160"/>

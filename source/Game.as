@@ -30,9 +30,9 @@ package source
 		public var reset:int = 60;
 		
 		override public function begin():void {
+			FP.screen.color = Colors.DARK_GRAY;
 			Global.level = 0;
-			add(Global.sndControler = new SoundController);
-			add(Global.photoControler = new PhotoController);
+			
 			//loadMaze();
 			nextlevel();
 		}
@@ -94,13 +94,18 @@ package source
 			//add(Global.maze = new Maze(0, 320));	
 			
 			//add the view, and the player
-			add(Global.player = new Player(xml.actors[0].player.@x * SCALE - 10, xml.actors[0].player.@y * SCALE - 4));
-			
-			
 			//set the view to follow the player, within no restraints, and let it "stray" from the player a bit.
 			//for example, if the last parameter was 1, the view would be static with the player. If it was 10, then
-			//it would trail behind the player a bit. Higher the number, slower it follows.
-			add(Global.view = new View(Global.player as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
+			//it would trail behind the player a bit. Higher the number, slower it follows.			
+			add(Global.player = new Player(xml.actors[0].player.@x * SCALE - 10, xml.actors[0].player.@y * SCALE - 4));
+			//add(Global.photoControler = new PhotoController);				
+			//add(Global.soundControler = new SoundController);
+			//add(Global.view = new View(Global.player as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
+			
+			//Airplanes
+			add(Global.airplane = new Airplane(0, 0));
+			add(Global.view = new View(Global.airplane as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
+			add(Global.airplane2 = new Airplane2(FP.width + 100, FP.height - 150));			
 			
 			// Add the strangers
 			for each (o in xml.actors[0].person_right) { add(new StrangerRight(o.@x * SCALE - 10, o.@y * SCALE - 4)); }		
@@ -110,7 +115,9 @@ package source
 			
 			// Add the triggers
 			for each (o in xml.triggers[0].trigger_01) { add(Global.trigger01 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
-			for each (o in xml.triggers[0].trigger_02) { add(Global.trigger02 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
+			for each (o in xml.triggers[0].trigger_02) { add(Global.trigger02 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }
+			for each (o in xml.triggers[0].trigger_03) { add(Global.trigger03 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
+			for each (o in xml.triggers[0].trigger_04) { add(Global.trigger04 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
 		}
 		
 		

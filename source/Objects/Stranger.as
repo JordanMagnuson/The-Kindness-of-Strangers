@@ -117,28 +117,31 @@ package source.Objects
 		
 		public function checkHelp():void
 		{
-			if (Math.abs(y - Global.player.y) <= Y_DISTANCE_TO_HELP)
+			if (Global.player)
 			{
-				if (Math.abs(x - Global.player.x) <= X_DISTANCE_TO_HELP)
+				if (Math.abs(y - Global.player.y) <= Y_DISTANCE_TO_HELP)
 				{
-					showTalkBubble = true;
-					if (x > Global.player.x)
+					if (Math.abs(x - Global.player.x) <= X_DISTANCE_TO_HELP)
 					{
-						direction = false;
+						showTalkBubble = true;
+						if (x > Global.player.x)
+						{
+							direction = false;
+						}
+						else
+						{
+							direction = true;
+						}
 					}
 					else
 					{
-						direction = true;
+						showTalkBubble = false;
 					}
 				}
 				else
 				{
 					showTalkBubble = false;
 				}
-			}
-			else
-			{
-				showTalkBubble = false;
 			}
 		}
 		
@@ -147,7 +150,7 @@ package source.Objects
 			if (direction)
 			{
 				imgBubble.flipped = false;
-				imgBubble.x = Global.player.width + imgBubble.width;
+				imgBubble.x = width + imgBubble.width;
 			}
 			else
 			{
