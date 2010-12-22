@@ -8,6 +8,7 @@
 	<objects>
 		<object name="maze" image="super_tough_maze.png" width="1878" height="2494"/>
 		<object name="player" image="player.png" width="6" height="12" limit="1"/>
+		<object name="heart" image="pixel_heart.png" width="11" height="10"/>
 		<folder name="strangers">
 			<object name="person_left" image="person_left.png" width="6" height="12"/>
 			<object name="person_right" image="person_right.png" width="6" height="12"/>

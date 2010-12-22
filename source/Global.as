@@ -3,6 +3,7 @@ package source
 	import net.flashpunk.utils.Key;
 	import source.Objects.Airplane;
 	import source.Objects.Airplane2;
+	import source.Objects.BigHeart;
 	import source.Objects.Player;
 	import source.Objects.Trigger;
 	/*
@@ -39,6 +40,7 @@ package source
 			trigger02:Trigger,
 			trigger03:Trigger,
 			trigger04:Trigger,
+			bigHeart:BigHeart,
 			
 			paused:Boolean = false,
 			restart:Boolean = false,

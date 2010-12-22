@@ -16,16 +16,17 @@ package source
 		public var text:Text;
 		public var bg:Image;
 		
-		[Embed(source = '../assets/fonts/CasualEncounter.ttf', embedAsCFF="false", fontFamily = 'CasualEncounter')] private var FONT:Class;
+		[Embed(source = '../assets/fonts/CasualEncounter.ttf', embedAsCFF = "false", fontFamily = 'CasualEncounter')] private var FONT_CE:Class;
+		[Embed(source = '../assets/fonts/verdana.ttf', embedAsCFF="false", fontFamily = 'verdana')] private var FONT_VERDANA:Class;
 		
-		public function TextEntity(textString:String, x:Number = 0, y:Number = 0, centered:Boolean = true, size:int = 8, color:uint = Colors.WHITE, fillBG:Boolean = false, bgColor:uint = Colors.BLACK) 
+		public function TextEntity(textString:String, x:Number = 0, y:Number = 0, centered:Boolean = true, size:int = 8, fontFamily:String = 'CasualEncounter', color:uint = Colors.WHITE, fillBG:Boolean = false, bgColor:uint = Colors.BLACK) 
 		{
 			super(x, y);
 			layer = -100;
 			this.x = x;
 			this.y = y;		
 			text = new Text(textString, x, y);
-			text.font = 'CasualEncounter';
+			text.font = fontFamily;
 			text.size = size;
 			
 			// Initialize text rendering
@@ -35,6 +36,13 @@ package source
 				text.originY = text.height / 2;
 				text.x = -text.originX;
 				text.y = -text.originY;		
+			}
+			else
+			{
+				text.originX = 0;
+				text.originY = 0;				
+				text.x = 0;
+				text.y = 0;
 			}
 			text.color = color;
 			
@@ -48,7 +56,7 @@ package source
 				bg.y = -bg.originY;				
 			}
 			
-			setHitbox(text.width, text.height, text.originX, text.originY);		
+			//setHitbox(text.width, text.height, text.originX, text.originY);		
 			graphic = text;						
 		}
 		

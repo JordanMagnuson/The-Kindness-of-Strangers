@@ -3,6 +3,7 @@ package source.Objects
 	import flash.geom.Point;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.Sfx;
 	import source.Global;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Draw;
@@ -18,6 +19,7 @@ package source.Objects
 		public static const Y_DISTANCE_TO_HELP:Number = 10;
 		
 		public var showTalkBubble:Boolean = false;
+		public var poweredUp:Boolean = false;
 		
 		[Embed(source = '../../assets/graphics/stranger.png')] public var imgStranger:Class;
 		public var sprStranger:Spritemap = new Spritemap(imgStranger, 32, 32, animEnd);		
@@ -26,7 +28,22 @@ package source.Objects
 		public var imgBubble:Image = new Image(SPRITE_BUBBLE);		
 		
 		[Embed(source = '../../assets/graphics/arrow_right.png')] public const SPRITE_ARROW:Class;
-		public var imgArrow:Image = new Image(SPRITE_ARROW);				
+		public var imgArrow:Image = new Image(SPRITE_ARROW);			
+		
+		//powerup sounds
+		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup01.wav')] public static const SND_P1:Class;
+		public var sndP1:Sfx = new Sfx(SND_P1);		
+		
+		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup02.wav')] public static const SND_P2:Class;
+		public var sndP2:Sfx = new Sfx(SND_P2);		
+		
+		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup03.wav')] public static const SND_P3:Class;
+		public var sndP3:Sfx = new Sfx(SND_P3);		
+		
+		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup04.wav')] public static const SND_P4:Class;
+		public var sndP4:Sfx = new Sfx(SND_P4);		
+		
+		public var powerupSounds:Array = new Array(sndP1, sndP2, sndP3, sndP4);
 		
 		//how fast we accelerate
 		public var movement:Number = 1;
@@ -96,6 +113,7 @@ package source.Objects
 			checkHelp();	
 			faceDirection();
 			updateTalkBubble();	
+			//checkPowerUp();
 			
 			super.update();
 			
@@ -160,6 +178,17 @@ package source.Objects
 			imgBubble.y = -5;	
 			imgArrow.x = imgBubble.x + 1;
 			imgArrow.y = imgBubble.y + 1;			
+		}
+		
+		public function checkPowerUp():void
+		{
+			if (this.collideWith(Global.player, x, y) && !poweredUp)
+			{
+				poweredUp = true;
+				FP.shuffle(powerupSounds);
+				var sound:Sfx = powerupSounds[0];
+				sound.play();
+			}
 		}
 		
 		public function faceDirection():void

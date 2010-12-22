@@ -22,7 +22,7 @@ package source.Objects
 			width = image.width;
 			height = image.height;
 			
-			//visible = false;
+			visible = false;
 		}
 		
 	}

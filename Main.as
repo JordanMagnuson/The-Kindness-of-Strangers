@@ -16,7 +16,7 @@
 			
 			//FP.screen.color = Colors.RED;
 			
-			FP.console.enable();
+			//FP.console.enable();
 		}
 		
 		override public function init():void

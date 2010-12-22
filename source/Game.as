@@ -118,6 +118,9 @@ package source
 			for each (o in xml.triggers[0].trigger_02) { add(Global.trigger02 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }
 			for each (o in xml.triggers[0].trigger_03) { add(Global.trigger03 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
 			for each (o in xml.triggers[0].trigger_04) { add(Global.trigger04 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
+			
+			// Heart
+			for each (o in xml.triggers[0].heart) { add(Global.bigHeart = new BigHeart(o.@x * SCALE, o.@y * SCALE)); }
 		}
 		
 		
