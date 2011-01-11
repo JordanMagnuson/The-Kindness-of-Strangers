@@ -17,6 +17,8 @@ package source
 		// How long to display each photo
 		public static const DISPLAY_TIME:Number = FP.assignedFrameRate * 10;
 		
+		public static var show:Boolean = true;
+		
 		/**
 		 * Photo array 01
 		 */
@@ -115,7 +117,8 @@ package source
 			lastPhoto = currentPhoto;
 			currentPhoto = new PhotoBackdrop(currentPhotoArray[currentIndex]);
 			FP.world.add(currentPhoto);
-			lastPhoto.fadeOut();
+			if (lastPhoto)
+				lastPhoto.fadeOut();
 			if (currentIndex < currentPhotoArray.length - 1)
 				currentIndex++;
 			else

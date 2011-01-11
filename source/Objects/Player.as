@@ -6,7 +6,11 @@ package source.Objects
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
+	import source.FadeOut;
 	import source.Global;
+	import net.flashpunk.FP;
+	import source.GameOverWorld
+	import source.Colors;
 	
 	public class Player extends Physics
 	{
@@ -59,6 +63,7 @@ package source.Objects
 			sprPlayer.play("standRight");
 			
 			//set hitbox & graphic
+			layer = -2;
 			setHitbox(12, 24, -10, -8);
 			graphic = sprPlayer;
 			type = "Player";
@@ -68,6 +73,17 @@ package source.Objects
 		{
 			//did we... die?
 			if (dead) { sprPlayer.alpha -= 0.1; return; } else if ( sprPlayer.alpha < 1 ) { sprPlayer.alpha += 0.1 }
+			
+			// Ran off the edge of the world?
+			if (x < 0 || x > FP.width)
+			{
+				if (y > FP.height/3 && !Global.died  && !Global.airplane2.playerTrigger03)
+				{
+					Global.died = true;
+					FP.world.add(new FadeOut(GameOverWorld, Colors.BLACK, 6));	
+					Global.soundControler.fadeOut();
+				}
+			}
 			
 			//are we on the ground?
 			onground = false;
@@ -92,7 +108,7 @@ package source.Objects
 			if ( (! Input.check(Global.keyLeft) && ! Input.check(Global.keyRight)) || Math.abs(speed.x) > mMaxspeed.x ) { friction(true, false); }
 			
 			//jump
-			if ( Input.pressed(Global.keyA) ) 
+			if (!stunned && Input.pressed(Global.keyA) ) 
 			{
 				var jumped:Boolean = false;
 				
@@ -132,11 +148,11 @@ package source.Objects
 			
 			
 			//if we ARE walljumping, make sure we can't go back
-			if (walljumping > 0)
-			{
-				if (walljumping == 2 && speed.x < 0) { speed.x = 0; }
-				if (walljumping == 1 && speed.x > 0) { speed.x = 0; }
-			}
+			//if (walljumping > 0)
+			//{
+				//if (walljumping == 2 && speed.x < 0) { speed.x = 0; }
+				//if (walljumping == 1 && speed.x > 0) { speed.x = 0; }
+			//}
 			
 			//set the gravity
 			gravity();

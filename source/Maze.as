@@ -17,6 +17,12 @@ package source
 		public var imgTop:Image = new Image(S_MAZE_TOP);
 		public var imgBottom:Image = new Image(S_MAZE_BOTTOM);
 		
+		// Solution
+		//[Embed(source = '../assets/supertough_maze_top_solution.png')] private const S_MAZE_TOP_SOL:Class;
+		//[Embed(source = '../assets/supertough_maze_bottom_solution.png')] private const S_MAZE_BOTTOM_SOL:Class;
+		//public var imgTopSol:Image = new Image(S_MAZE_TOP_SOL);
+		//public var imgBottomSol:Image = new Image(S_MAZE_BOTTOM_SOL);		
+		
 		public var mazeTop:Entity;
 		public var mazeBottom:Entity;
 		
@@ -41,6 +47,13 @@ package source
 			mazeBottom.type = type;
 			mazeBottom.layer = layer;		
 			mazeTop.active = active;
+			
+			// show solution?
+			//if (Global.showSolution)
+			//{
+				//FP.world.add(mazeTop = new Entity(x, y, imgTopSol));
+				//FP.world.add(mazeBottom = new Entity(x, y + imgTop.height, imgBottomSol));
+			//}
 		}
 		
 	}

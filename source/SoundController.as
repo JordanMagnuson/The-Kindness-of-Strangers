@@ -27,6 +27,9 @@ package source
 		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part02.wav')] private const SND_TRANSCRIPT_02:Class;
 		public var sndTranscript02:Sfx = new Sfx(SND_TRANSCRIPT_02);		
 		
+		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part02_breakdown.wav')] private const SND_TRANSCRIPT_02_BREAK:Class;
+		public var sndTranscript02Break:Sfx = new Sfx(SND_TRANSCRIPT_02_BREAK);				
+		
 		[Embed(source='../assets/sound/sounds.swf', symbol='transcript_part03.wav')] private const SND_TRANSCRIPT_03:Class;
 		public var sndTranscript03:Sfx = new Sfx(SND_TRANSCRIPT_03);	
 		
@@ -51,19 +54,31 @@ package source
 		override public function update():void
 		{
 			super.update();
-			if (Global.player.collideWith(Global.trigger01, Global.player.x, Global.player.y) && currentSound != sndTranscript02)
+			if (Global.player.collideWith(Global.trigger01, Global.player.x, Global.player.y))
 			{
-				trace('collide trigger 1');
-				fader.fadeTo(0, FADE_DURATION);
-				currentSound = sndTranscript02;
-				currentSound.play();
+				if (currentSound != sndTranscript02 && currentSound != sndTranscript02Break)
+				{
+					trace('collide trigger 1');
+					fader.fadeTo(0, FADE_DURATION);
+					if (Global.kindness)
+						currentSound = sndTranscript02;
+					else
+					{
+						currentSound = sndTranscript02Break;
+						FP.world.add(new GlitchController);
+					}
+					currentSound.play();
+				}
 			}
 			else if (Global.player.collideWith(Global.trigger02, Global.player.x, Global.player.y) && currentSound != sndTranscript03)
 			{
 				trace('collide trigger 2');
-				fader.fadeTo(0, FADE_DURATION);
-				currentSound = sndTranscript03;
-				currentSound.play();
+				if (Global.kindness)
+				{
+					fader.fadeTo(0, FADE_DURATION);
+					currentSound = sndTranscript03;
+					currentSound.play();
+				}
 			}	
 			else if (Global.player.collideWith(Global.trigger04, Global.player.x, Global.player.y) && !trigger04)
 			{
@@ -71,13 +86,13 @@ package source
 				trigger04 = true;
 				soundPlane.loop();
 			}	
-			
-			if (trigger04)
+			else if (trigger04)
 			{
 				soundPlane.pan = FP.scale(Global.player.x, Global.trigger04.x, FP.width, 1, 0);
 				soundPlane.volume = FP.scale(Global.player.x, Global.trigger04.x, FP.width, 0, 0.5);
 			}
 			
+			//if (currentSound == sndTranscript04 && !fadeOutStarted)
 			if (currentSound == sndTranscript04 && !sndTranscript04.playing && !fadeOutStarted)
 			{
 				fadeOutStarted = true;
@@ -91,14 +106,24 @@ package source
 			soundPlane.stop();
 			trigger04 = false;
 			fader.fadeTo(0, FADE_DURATION);
-			currentSound = sndTranscript04;
-			currentSound.play();		
+			if (Global.kindness)
+			{
+				currentSound = sndTranscript04;
+				currentSound.play();	
+			}
 		}
 		
 		public function fadeComplete():void
 		{
 			fader = new SfxFader(currentSound, fadeComplete);
 			addTween(fader);
+		}
+		
+		public function fadeOut():void
+		{
+			fader = new SfxFader(currentSound);
+			addTween(fader);
+			fader.fadeTo(0, 6  * FP.assignedFrameRate);
 		}
 		
 	}

@@ -31,19 +31,19 @@ package source.Objects
 		public var imgArrow:Image = new Image(SPRITE_ARROW);			
 		
 		//powerup sounds
-		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup01.wav')] public static const SND_P1:Class;
-		public var sndP1:Sfx = new Sfx(SND_P1);		
+		//[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup01.wav')] public static const SND_P1:Class;
+		//public var sndP1:Sfx = new Sfx(SND_P1);		
+		//
+		//[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup02.wav')] public static const SND_P2:Class;
+		//public var sndP2:Sfx = new Sfx(SND_P2);		
+		//
+		//[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup03.wav')] public static const SND_P3:Class;
+		//public var sndP3:Sfx = new Sfx(SND_P3);		
+		//
+		//[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup04.wav')] public static const SND_P4:Class;
+		//public var sndP4:Sfx = new Sfx(SND_P4);		
 		
-		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup02.wav')] public static const SND_P2:Class;
-		public var sndP2:Sfx = new Sfx(SND_P2);		
-		
-		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup03.wav')] public static const SND_P3:Class;
-		public var sndP3:Sfx = new Sfx(SND_P3);		
-		
-		[Embed(source = '../../assets/sound/sounds.swf', symbol = 'powerup04.wav')] public static const SND_P4:Class;
-		public var sndP4:Sfx = new Sfx(SND_P4);		
-		
-		public var powerupSounds:Array = new Array(sndP1, sndP2, sndP3, sndP4);
+		//public var powerupSounds:Array = new Array(sndP1, sndP2, sndP3, sndP4);
 		
 		//how fast we accelerate
 		public var movement:Number = 1;
@@ -61,6 +61,7 @@ package source.Objects
 		{
 			//set position
 			super(x, y);
+			layer = -1;
 			start = new Point(x, y);
 			
 			//set different speeds and such
@@ -93,6 +94,7 @@ package source.Objects
 			
 			//Face random direction
 			direction = FP.choose(true, false);
+			faceDirection();
 			
 			// Deal with talk bubble
 			imgBubble.color = Global.BG_COLOR;
@@ -110,9 +112,12 @@ package source.Objects
 		
 		override public function update():void
 		{
-			checkHelp();	
-			faceDirection();
-			updateTalkBubble();	
+			if (Global.help) 
+			{
+				checkHelp();
+				faceDirection();
+				updateTalkBubble();	
+			}
 			//checkPowerUp();
 			
 			super.update();
@@ -180,16 +185,16 @@ package source.Objects
 			imgArrow.y = imgBubble.y + 1;			
 		}
 		
-		public function checkPowerUp():void
-		{
-			if (this.collideWith(Global.player, x, y) && !poweredUp)
-			{
-				poweredUp = true;
-				FP.shuffle(powerupSounds);
-				var sound:Sfx = powerupSounds[0];
-				sound.play();
-			}
-		}
+		//public function checkPowerUp():void
+		//{
+			//if (this.collideWith(Global.player, x, y) && !poweredUp)
+			//{
+				//poweredUp = true;
+				//FP.shuffle(powerupSounds);
+				//var sound:Sfx = powerupSounds[0];
+				//sound.play();
+			//}
+		//}
 		
 		public function faceDirection():void
 		{

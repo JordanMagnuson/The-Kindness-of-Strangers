@@ -1,24 +1,40 @@
-ADVANCED PLATFORM ENGINE
-by Noel Berry (www.noelberry.ca)
+========================================================================
+The Kindness of Strangers
+A microgame by Jordan Magnuson 
+Created for GameTrekking.com
+========================================================================
 
-Flash Punk Library by Chevy Ray (read the FlashPunk Licence.txt for more info)
-----------------------------------------------------------------
+Language:	AS3
 
-Title: ADVANCED PLATFORM ENGINE
-Version: 0.85
-Auhtor: Noel Berry
-Flash Punk Version: 1.4
-Description:
-This platform engine uses the Flash Punk library (www.flashpunk.net) and demonstrates how to create more advanced platform game.
+Libraries:	Flashpunk (flashpunk.net)
+		Noel Berry's Advanced Platform Engine
 
-You are free to use this however you want, and do whatever you want with it (note, this applies to the Advanced Platform Engine code, located in the src folder, and NOT the flashpunk code, located in net/flashpunk. Please refer to the FlashPunk Licence.txt for more information on Flashpunk).
+Built in:	FlashDevelop (project file included)
 
-Have fun! :D
+The source code for this game is completely free and open: use it
+in whatever way you'd like. If you find it helpful, or make anything
+particular with it, I'd love to hear about it! Send an email to
+jordan@gametrekking.com .
 
-CHANGES (V0.8 to V0.85)
-----------------------------------------------------------------
- - Added Double-Jumping
- - Added Wall-Jumping
- - Changed how max-speed works in the player so that wall jumping would work more efficiently
- - Added two new variables to the player, doublejump and walljumping, for doublejumping and walljumping respectively.
- - Updated to FlashPunk 1.4
+Notes: 
+
+- The game was built on top of Berry's APE (a brilliant engine) in a 
+  terribly haphazard way. If you're interested in the platform engine, 
+  I suggest that you download the lastest version of APE separately.
+
+- The FlashPunk library is covered by its own license, which can be found 
+  in the flashpunk directory.
+
+------------------------------------------------------------------------
+CREDITS
+------------------------------------------------------------------------
+
+Special thanks to everyone who helped me test and refine this game, including:
+
+Jed Davis
+Karith Magnuson
+Stephen "increpare" Lavelle
+Nathaniel Magnuson
+Jeremy Apthorp
+Elspeth Fisher
+Florent Maurin

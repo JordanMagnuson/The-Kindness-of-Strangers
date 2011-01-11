@@ -41,6 +41,11 @@ package source
 			trigger03:Trigger,
 			trigger04:Trigger,
 			bigHeart:BigHeart,
+			kindness:Boolean, 	//controlls whether people will help or not
+			help:Boolean = true,		//controlls whether help bubbles show, turned off automatically if kindness is false
+			intro:Boolean = true, 		//controlls whether the plane flies in with an intro, or not (for testing)
+			showSolution:Boolean = true, //show maze solution (for testing, cheating);
+			died:Boolean = false,
 			
 			paused:Boolean = false,
 			restart:Boolean = false,

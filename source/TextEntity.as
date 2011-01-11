@@ -16,7 +16,7 @@ package source
 		public var text:Text;
 		public var bg:Image;
 		
-		[Embed(source = '../assets/fonts/CasualEncounter.ttf', embedAsCFF = "false", fontFamily = 'CasualEncounter')] private var FONT_CE:Class;
+		//[Embed(source = '../assets/fonts/CasualEncounter.ttf', embedAsCFF = "false", fontFamily = 'CasualEncounter')] private var FONT_CE:Class;
 		[Embed(source = '../assets/fonts/verdana.ttf', embedAsCFF="false", fontFamily = 'verdana')] private var FONT_VERDANA:Class;
 		
 		public function TextEntity(textString:String, x:Number = 0, y:Number = 0, centered:Boolean = true, size:int = 8, fontFamily:String = 'CasualEncounter', color:uint = Colors.WHITE, fillBG:Boolean = false, bgColor:uint = Colors.BLACK) 

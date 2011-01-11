@@ -8,10 +8,13 @@ package source
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
 	import net.flashpunk.graphics.Tilemap;
-	import org.flashdevelop.utils.FlashViewer;
 	
 	import source.Objects.*;
 	import source.Solids.*;
+	
+	import net.flashpunk.utils.Key;
+	import net.flashpunk.utils.Input;
+	
 	/**
 	 * ...
 	 * @author Noel Berry
@@ -20,7 +23,7 @@ package source
 	{
 		public const SCALE:Number = 2; // How much to scale the ogmo level information by.
 		
-		[Embed(source='../assets/levels/MainLevel03.oel', mimeType='application/octet-stream')] public var level1: Class;
+		[Embed(source='../assets/levels/MainLevel05.oel', mimeType='application/octet-stream')] public var level1: Class;
 		
 		
 		public var levels:Array = new Array(level1);
@@ -32,9 +35,17 @@ package source
 		override public function begin():void {
 			FP.screen.color = Colors.DARK_GRAY;
 			Global.level = 0;
+			Global.died = false;
+			Global.help = true;
 			
+			trace('kindness: ' + Global.kindness);
+				
 			//loadMaze();
 			nextlevel();
+			
+			PhotoController.show = true;
+			
+			//add(new GlitchController);
 		}
 		
 		public function loadMaze():void
@@ -54,7 +65,7 @@ package source
 		}
 		
 		override public function update():void {
-			if (!Global.paused) { super.update(); }
+			if (!Global.paused) { super.update(); }				
 			
 			//if we should restart
 			if (Global.restart) { 
@@ -97,15 +108,27 @@ package source
 			//set the view to follow the player, within no restraints, and let it "stray" from the player a bit.
 			//for example, if the last parameter was 1, the view would be static with the player. If it was 10, then
 			//it would trail behind the player a bit. Higher the number, slower it follows.			
-			add(Global.player = new Player(xml.actors[0].player.@x * SCALE - 10, xml.actors[0].player.@y * SCALE - 4));
-			//add(Global.photoControler = new PhotoController);				
-			//add(Global.soundControler = new SoundController);
-			//add(Global.view = new View(Global.player as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
 			
-			//Airplanes
-			add(Global.airplane = new Airplane(0, 0));
-			add(Global.view = new View(Global.airplane as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
-			add(Global.airplane2 = new Airplane2(FP.width + 100, FP.height - 150));			
+			
+			if (Global.intro)
+			{
+				//Airplanes
+				add(Global.airplane = new Airplane(0, 0));
+				add(Global.view = new View(Global.airplane as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));
+				add(Global.airplane2 = new Airplane2(FP.width + 100, FP.height - 150));		
+				add(Global.player = new Player(xml.actors[0].player.@x * SCALE - 10, xml.actors[0].player.@y * SCALE - 4));
+				Global.player.stunned = true;
+			}
+			else 
+			{
+				//add(Global.player = new Player(xml.actors[0].player.@x * SCALE - 10, xml.actors[0].player.@y * SCALE - 4));
+				add(Global.player = new Player(100, 100));
+				add(Global.airplane2 = new Airplane2(FP.width + 100, FP.height - 150));	
+				add(Global.photoControler = new PhotoController);				
+				add(Global.soundControler = new SoundController);
+				add(Global.view = new View(Global.player as Entity, new Rectangle(0, 0, FP.width, FP.height), 10));		
+				Global.player.stunned = false;
+			}		
 			
 			// Add the strangers
 			for each (o in xml.actors[0].person_right) { add(new StrangerRight(o.@x * SCALE - 10, o.@y * SCALE - 4)); }		
@@ -120,7 +143,8 @@ package source
 			for each (o in xml.triggers[0].trigger_04) { add(Global.trigger04 = new Trigger(o.@x * SCALE, o.@y * SCALE)); }	
 			
 			// Heart
-			for each (o in xml.triggers[0].heart) { add(Global.bigHeart = new BigHeart(o.@x * SCALE, o.@y * SCALE)); }
+			if (Global.kindness)
+				for each (o in xml.triggers[0].heart) { add(Global.bigHeart = new BigHeart(o.@x * SCALE, o.@y * SCALE)); }
 		}
 		
 		

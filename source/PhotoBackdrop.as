@@ -62,6 +62,12 @@ package source
 			FP.world.remove(this);
 		}
 		
+		override public function render():void
+		{
+			if (PhotoController.show)
+				super.render();
+		}		
+		
 	}
 
 }

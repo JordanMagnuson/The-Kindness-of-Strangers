@@ -22,6 +22,8 @@ package source.Objects
 	
 		public var soundPlane:Sfx = new Sfx(Airplane.SOUND_PLANE);
 		
+		public var fadeOutStarted:Boolean = false;
+		
 		public function Airplane2(x:Number, y:Number)  
 		{
 			super(x, y);
@@ -59,6 +61,15 @@ package source.Objects
 				soundPlane.pan = FP.scale(x, -1000, FP.width, -1, 0);
 				soundPlane.volume = FP.scale(x, -1000, FP.width, 0, 0.5);
 			}
+			
+			if (!Global.kindness)
+			{
+				if (x < FP.width/2 && !fadeOutStarted)
+				{
+					fadeOutStarted = true;
+					FP.world.add(new FadeOut(GameOverWorld, Colors.BLACK, 6));					
+				}
+			}			
 		}
 		
 	}

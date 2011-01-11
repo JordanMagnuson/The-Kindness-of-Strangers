@@ -48,6 +48,7 @@ package source.Objects
 				playerDropped = true;
 				Global.player.x = x;
 				Global.player.y = y;
+				Global.player.stunned = false;
 				Global.view.setView(Global.player as Entity, new Rectangle(0, 0, FP.width, FP.height), 10);
 				FP.world.add(Global.photoControler = new PhotoController);				
 				FP.world.add(Global.soundControler = new SoundController);
