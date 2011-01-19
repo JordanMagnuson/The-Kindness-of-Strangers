@@ -29,7 +29,8 @@
 			Global.intro = true;
 			
 			// Determine whether strangers will help the player
-			if (FP.random < 0.25)
+			//if (FP.random < 0.25)
+			if (false)
 				Global.kindness = false;
 			else
 				Global.kindness = true;		

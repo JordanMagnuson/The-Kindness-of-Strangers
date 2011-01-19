@@ -65,7 +65,8 @@ package source
 				if (Global.died)
 				{
 					// Roll the dice again on kindness
-					if (FP.random < 0.25)
+					//if (FP.random < 0.25)
+					if (false)
 						Global.kindness = false;
 					else
 						Global.kindness = true;								

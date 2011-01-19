@@ -31,10 +31,11 @@ CREDITS
 
 Special thanks to everyone who helped me test and refine this game, including:
 
-Jed Davis
-Karith Magnuson
-Stephen "increpare" Lavelle
-Nathaniel Magnuson
 Jeremy Apthorp
+Simon Braunstein
+Jed Davis
 Elspeth Fisher
+Stephen "increpare" Lavelle
+Karith Magnuson
+Nathaniel Magnuson
 Florent Maurin
